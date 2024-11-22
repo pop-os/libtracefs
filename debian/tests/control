@@ -1,0 +1,26 @@
+Tests: build-examples.sh
+Depends: @, @builddeps@
+Restrictions: needs-root, superficial
+
+# We require some patching to get a testsuite that passes in CI but remains useful.
+# Most of the change is in d/tests/autopkgtest-specific.patch. We also need to
+# include code from src/tracefs-utils.c which is meant for the testsuite but is
+# not in the .so; luckiy we can simply copy part of that file in the testsuite;
+# unfortunately this introduces compilation warnings which we have to be sent
+# to stdout to avoid a spurious test failure.
+Test-Command: patch -p1 < debian/tests/autopkgtest-specific.patch && head -n 161 < src/tracefs-utils.c >> utest/tracefs-utest.c && make LIBTRACEFS_STATIC= test 2>&1 && ./utest/trace-utest
+Features: test-name=trace-utest
+Depends: @, @builddeps@
+Restrictions: needs-root, isolation-machine
+
+# We allow-stderr here because the test uses valgrind which always outputs
+# something to stderr. There are memory leak reports too but it's not realistic
+# to fix/suppress them; valgrind is useful to catch more serious errors too so
+# I'm including it.
+# The tests are the same as the ones for trace-utest, except they run under
+# valgrind. I don't know whether the randomly-failing test aforementioned will
+# be an issue here.
+Test-Command: make LIBTRACEFS_STATIC= test_mem
+Features: test-name=trace-utest-valgrind
+Depends: @, @builddeps@, valgrind
+Restrictions: needs-root, isolation-machine, allow-stderr

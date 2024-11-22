@@ -1,0 +1,174 @@
+libtracefs (1.8.0-1ubuntu1) noble; urgency=medium
+
+  * Remove "patches/" from .gitignore
+  * Bump libtraceevent-dev Build-Depends to >= 1:1.8.0
+  * Only use online CPUs during tests
+    - d/p/testsuite-use-only-online-cpus.patch
+  * Return an error from trace-utest if one of the tests failed:
+    - d/p/testsuite-return-error-when-tests-failed.patch
+  * Build and run the upstream testsuite (as root) during build
+  * Run the upstream test suite during autopkgtest (requires root and VM)
+    (LP: #2055309)
+    - Build autopkgtest testsuite against installed library
+    - Ignore CI-incompatible test failures in CI
+    - Add d/tests/autopkgtest-specific.patch to support required changes
+
+ -- Adrien Nader <adrien.nader@canonical.com>  Tue, 16 Apr 2024 22:25:06 +0200
+
+libtracefs (1.8.0-1) unstable; urgency=medium
+
+  * New upstream version 1.8.0
+    - Update symbols.
+    - Update copyright.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Tue, 16 Jan 2024 22:17:46 +0000
+
+libtracefs (1.7.0-1) unstable; urgency=medium
+
+  [ Lucas Kanashiro ]
+  * d/tests: add DEP-8 test to build samples extracted from the doc
+
+  [ Sudip Mukherjee ]
+  * New upstream version 1.7.0
+    - Update copyright.
+    - Add new symbols.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Sat, 24 Jun 2023 11:59:18 +0100
+
+libtracefs (1.6.4-1) unstable; urgency=medium
+
+  * New upstream version 1.6.4
+  * Update Standards-Version to 4.6.2
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Tue, 17 Jan 2023 20:44:33 +0000
+
+libtracefs (1.6.3-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Repository.
+  * Apply multi-arch hints. + libtracefs-doc: Add Multi-Arch: foreign.
+
+  [ Sudip Mukherjee ]
+  * New upstream version 1.6.3 (Closes: #1025899)
+    - Update symbols.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Mon, 02 Jan 2023 12:30:07 +0000
+
+libtracefs (1.5.0-1) unstable; urgency=medium
+
+  * New upstream version 1.5.0
+    - Update symbols.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Tue, 27 Sep 2022 20:32:43 +0100
+
+libtracefs (1.4.2-1) unstable; urgency=medium
+
+  * New upstream version 1.4.2
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Mon, 22 Aug 2022 21:13:58 +0100
+
+libtracefs (1.4.1-1) unstable; urgency=medium
+
+  * New upstream version 1.4.1
+  * Update Standards-Version to 4.6.1.0
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Sat, 09 Jul 2022 11:55:28 +0100
+
+libtracefs (1.4.0-1) unstable; urgency=medium
+
+  * New upstream version 1.4.0
+    - Update symbols.
+    - Update copyright.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Mon, 06 Jun 2022 19:55:09 +0100
+
+libtracefs (1.3.1-1) unstable; urgency=medium
+
+  [ Henning Schild ]
+  * Update build dependencies of libtracefs.
+
+  [ Sudip Mukherjee ]
+  * New upstream version 1.3.1
+  * Add bison as build dependency.
+    - Thanks Felix Moessbauer.
+  * Disable parallel builds. (Closes: #1008722)
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Thu, 14 Apr 2022 20:23:09 +0100
+
+libtracefs (1.3.0-1) unstable; urgency=medium
+
+  * New upstream version 1.3.0
+    - Update symbols file.
+    - Remove copy before auto_test.
+    - Update copyright.
+  * Update Standards-Version to 4.6.0.1
+  * Fix FTCBFS: Export build tools for all targets. (Closes: #1003475)
+    - Thanks Helmut Grohne for the patch.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Tue, 08 Mar 2022 21:28:52 +0000
+
+libtracefs (1.2.5-1) unstable; urgency=medium
+
+  * Upload to unstable.
+  * New upstream version 1.2.5
+    - Update symbols.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Sun, 29 Aug 2021 23:56:07 +0100
+
+libtracefs (1.2.0-1) experimental; urgency=medium
+
+  * New upstream version 1.2.0
+    - Remove upstream applied patch.
+    - Update version dependency of libtraceevent.
+    - Update symbols.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Tue, 25 May 2021 21:21:49 +0100
+
+libtracefs (1.1.1-2) experimental; urgency=medium
+
+  * Add version dependency on libtraceevent.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Sat, 24 Apr 2021 15:16:01 +0100
+
+libtracefs (1.1.1-1) experimental; urgency=medium
+
+  * New upstream version 1.1.1
+    - Update copyright.
+    - Update symbols file.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Sat, 24 Apr 2021 11:31:50 +0100
+
+libtracefs (1.0.2-1) unstable; urgency=medium
+
+  * New upstream version 1.0.2
+  * Enable verbose builds unless 'terse' DEB_BUILD_OPTIONS is set.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Fri, 15 Jan 2021 19:51:17 +0000
+
+libtracefs (1.0.1-1) experimental; urgency=medium
+
+  * Update watch file.
+  * New upstream version 1.0.1
+    - Rename package for SONAME bump.
+    - Update copyright.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Sun, 10 Jan 2021 22:33:51 +0000
+
+libtracefs (0.0~git20201221.74d7273-2) experimental; urgency=medium
+
+  * Build and package libtracefs documentation.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Thu, 24 Dec 2020 17:16:33 +0000
+
+libtracefs (0.0~git20201221.74d7273-1) experimental; urgency=medium
+
+  * New upstream version 0.0~git20201221.74d7273
+    - Update symbols file.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Mon, 21 Dec 2020 18:38:23 +0000
+
+libtracefs (0.0~git20201211.ca6a929-1) experimental; urgency=medium
+
+  * Initial release (Closes: #976425)
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Fri, 11 Dec 2020 23:15:13 +0000

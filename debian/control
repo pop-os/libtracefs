@@ -1,0 +1,43 @@
+Source: libtracefs
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+Build-Depends:
+ debhelper-compat (= 13), libcunit1-dev, libtraceevent-dev (>= 1:1.8.0),
+ pkg-config, asciidoc, xmlto, source-highlight, flex, bison
+Standards-Version: 4.6.2
+Section: libs
+Homepage: https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git
+Vcs-Browser: https://salsa.debian.org/sudip/libtracefs
+Vcs-Git: https://salsa.debian.org/sudip/libtracefs.git
+Rules-Requires-Root:
+
+Package: libtracefs-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Suggests: libtracefs-doc
+Depends: libtracefs1 (= ${binary:Version}), ${misc:Depends}
+Description: API to access the kernel tracefs directory (development files)
+ The libtracefs library provides APIs to access kernel tracefs file system.
+ .
+ This package is needed to compile programs against libtracefs1.
+
+Package: libtracefs1
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: API to access the kernel tracefs directory (shared library)
+ The libtracefs library provides APIs to access kernel tracefs file system.
+ .
+ This package contains the shared library.
+
+Package: libtracefs-doc
+Section: doc
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: foreign
+Description: API to access the kernel tracefs directory (documentation)
+ The libtracefs library provides APIs to access kernel tracefs file system.
+ .
+ This package contains the documentation of libtracefs.

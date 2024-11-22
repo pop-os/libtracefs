@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/architecture.mk
+DPKG_EXPORT_BUILDTOOLS=1
+-include /usr/share/dpkg/buildtools.mk
+
+ifeq (,$(findstring terse,$(DEB_BUILD_OPTIONS)))
+        VERBOSE=1
+endif
+
+export DEB_GAIN_ROOT_CMD='sudo -nE --'
+
+PREFIX=/usr
+build_flags = prefix=$(PREFIX) libdir_relative=lib/$(DEB_HOST_MULTIARCH) pkgconfig_dir=$(PREFIX)/lib/$(DEB_HOST_MULTIARCH)/pkgconfig V=$(VERBOSE)
+
+%:
+	dh $@ --no-parallel
+
+override_dh_auto_build:
+	dh_auto_build -- all doc $(build_flags)
+
+override_dh_auto_install:
+	dh_auto_install -- install_doc $(build_flags)
+
+execute_after_dh_auto_test:
+	# Up to 3 attempts as one test fails randomly (~3% failure rate)
+	./utest/trace-utest || ./utest/trace-utest || ./utest/trace-utest
