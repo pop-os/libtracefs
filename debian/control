@@ -14,7 +14,7 @@ Rules-Requires-Root:
 
 Package: libtracefs-dev
 Section: libdevel
-Architecture: any
+Architecture: amd64 arm64
 Multi-Arch: same
 Suggests: libtracefs-doc
 Depends: libtracefs1 (= ${binary:Version}), ${misc:Depends}
@@ -24,7 +24,7 @@ Description: API to access the kernel tracefs directory (development files)
  This package is needed to compile programs against libtracefs1.
 
 Package: libtracefs1
-Architecture: any
+Architecture: amd64 arm64
 Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: API to access the kernel tracefs directory (shared library)
